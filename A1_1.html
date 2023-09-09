@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A1_1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="ds221-aug-2023">DS221 (Aug 2023)</h1>
+<h1 id="assignment-1">ASSIGNMENT 1</h1>
+<blockquote>
+<p>v1: Initial version (2023-09-09)</p>
+</blockquote>
+<ul>
+<li><strong>Posted on 2023-09-09</strong></li>
+<li><strong>Due on 2023-09-24 11:59PM</strong></li>
+<li><strong>Total Points: 150</strong></li>
+</ul>
+<h2 id="instructions">INSTRUCTIONS</h2>
+<p>All problems must be solved using C++ and compile/execute correctly on the rigel cluster. You may test and debug in your local machine but the final evaluation by us will be done on rigel.</p>
+<p>All performance numbers reported should be on rigel compute nodes. Experiments should be run during your assigned time-slot to avoid performance interference. We will expect to be able to reproduce your performance results.</p>
+<p>You are encouraged to actively use Copilot to solve the programming part of the problem, to generate solution code and test code. You are responsible for checking the accuracy of the code, including edge cases.</p>
+<p>You must not collaborate with other students or take help from other (non-copilot) online sources to solve any parts of the problem, including code, prompts, algorithms, time/space complexity, etc.</p>
+<h2 id="questions">QUESTIONS</h2>
+<hr>
+<hr>
+<h3 id="question-1-dense-to-sparse-matrix-conversion-5-points">Question 1: Dense to Sparse Matrix conversion [5 points]</h3>
+<h4 id="given-a-dense-nxn-matrix-densematrix-represented-as-a-2d-vector-of-vector-of-integers-return-a-sparse-matrix-form-of-the-array-using-the-compressed-sparse-row-csr-format-the-csr-format-should-be-populated-within-the-three-vector-points-that-are-passed-values-columnindices-and-rowpointers">Given a dense NxN matrix <code>denseMatrix</code> represented as a 2D vector of vector of integers, return a sparse matrix form of the array using the Compressed Sparse Row (CSR) format. The CSR format should be populated within the three vector points that are passed, <code>values</code>, <code>columnIndices</code> and <code>rowPointers</code>.</h4>
+<p>Function Signature:</p>
+<pre class="hljs"><code><div>void denseToSparse(const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; denseMatrix,
+                   std::vector&lt;int&gt;&amp; values,
+                   std::vector&lt;int&gt;&amp; columnIndices,
+                   std::vector&lt;int&gt;&amp; rowPointers);
+</div></code></pre>
+<hr>
+<hr>
+<h3 id="question-2-matrix-matrix-multiplication-80-points">Question 2: Matrix-Matrix Multiplication [80 points]</h3>
+<h4 id="2a-given-two-square-dense-matrices-of-size-nxn-represented-perform-matrix-matrix-multiplication-of-the-two-matrices-and-store-the-result-in-a-dense-matrix-5-points">2(a) Given two square dense matrices of size NxN represented, perform Matrix-Matrix multiplication of the two matrices, and store the result in a dense matrix. [5 points]</h4>
+<p>Function Signature:</p>
+<pre class="hljs"><code><div>void denseMatrixMultiplication(const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; denseMatrix1,
+                  const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; denseMatrix2,
+                  int N,
+                  const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; denseMatrix_result);
+</div></code></pre>
+<hr>
+<h4 id="2b-given-two-square-dense-matrices-of-size-nxn-represented-perform-block-matrix-matrix-multiplication-of-the-two-matrices-with-block-size-b-and-store-the-result-in-a-dense-matrix-5-points">2(b) Given two square dense matrices of size NxN represented, perform block Matrix-Matrix multiplication of the two matrices with block size B, and store the result in a dense matrix. [5 points]</h4>
+<p>Function Signature:</p>
+<pre class="hljs"><code><div>void blockMatrixMultiplication(const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; denseMatrix1,
+								const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; denseMatrix2,
+								int N, int B,
+								const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; denseMatrix_result);
+</div></code></pre>
+<hr>
+<h4 id="2c-given-two-square-sparse-matrices-of-size-nxn-represented-in-csr-format-perform-matrix-matrix-multiplication-of-the-two-matrices-and-store-the-result-in-csr-format-15-points">2(c) Given two square sparse matrices of size NxN represented in CSR format, perform Matrix-Matrix multiplication of the two matrices, and store the result in CSR format. [15 points]</h4>
+<p>Function Signature:</p>
+<pre class="hljs"><code><div>void sparseMatrixMultiplication(const std::vector&lt;int&gt;&amp; values1,
+                                const std::vector&lt;int&gt;&amp; column_indices1,
+                                const std::vector&lt;int&gt;&amp; row_pointers1,
+                                const std::vector&lt;int&gt;&amp; values2,
+                                const std::vector&lt;int&gt;&amp; column_indices2,
+                                const std::vector&lt;int&gt;&amp; row_pointers2,
+                                int N,
+                                std::vector&lt;int&gt;&amp; values_result,
+                                std::vector&lt;int&gt;&amp; column_indices_result,
+                                std::vector&lt;int&gt;&amp; row_pointers_result);
+</div></code></pre>
+<hr>
+<h4 id="2d-what-are-the-big-o-big-omega-and-big-theta-time-complexity-of-the-dense-block-and-sparse-matrix-multiplication-algorithms-what-are-the-space-complexities-provide-the-pseudocode-and-complexities-in-the-report-with-justification-20-points">2(d) What are the Big-O, Big-Omega and Big-Theta time complexity of the dense, block and sparse matrix multiplication algorithms? What are the space complexities? Provide the pseudocode and complexities in the report, with justification. [20 points]</h4>
+<hr>
+<h4 id="2e-do-the-time-and-space-complexities-expected-match-the-experimental-time-taken-and-space-used-for-different-matrix-sizes-and-block-sizes-for-these-three-algorithms-run-experiments-provide-plots-and-discuss-the-results-in-your-report-in-detail-35-points">2(e) Do the time and space complexities expected match the experimental time taken and space used, for different matrix sizes (and block sizes) for these three algorithms? Run experiments, provide plots and discuss the results in your report in detail. [35 points]</h4>
+<hr>
+<hr>
+<h3 id="question-3-finding-patterns-in-graphs-65-points">Question 3: Finding patterns in Graphs [65 points]</h3>
+<h4 id="3a-you-are-provided-an-adjacency-dense-matrix-which-represents-an-undirected-graph-cells-are-of-type-integer-with-values-between-0-999-each-non-zero-cell-represents-an-edge-between-the-row-vertex-and-column-vertex-and-the-non-zero-value-indicates-the-type-of-the-edge-find-all-the-3-cycles-triangles-in-the-graph-and-return-a-frequency-of-their-edge-type-patterns-eg-if-a-the-edges-of-a-triangle-in-the-graph-have-values-93-87-and-6-then-it-forms-three-patterns-93--87--6-87--6--93-and-6--93--87-if-the-edges-are-1-1-and-1-then-it-forms-three-triangles-with-the-pattern-1--1--1">3(a) You are provided an adjacency (dense) matrix which represents an undirected graph. Cells are of type integer with values between 0-999. Each non-zero cell represents an edge between the row vertex and column vertex, and the non-zero value indicates the type of the edge. Find all the 3-cycles (triangles) in the graph and return a frequency of their edge-type patterns. E.g., if a the edges of a triangle in the graph have values 93, 87 and 6, then it forms three patterns: 93--87--6, 87--6--93 and 6--93--87. If the edges are 1, 1 and 1, then it forms three triangles with the pattern 1--1--1.</h4>
+<h4 id="you-should-enumerate-and-return-all-the-patterns-and-their-counts-provide-two-implementations-one-that-uses-and-returns-a-vector-and-another-that-uses-and-returns-a-hash-map-the-key-for-the-map-output-will-be-an-integer-array-of-size-3-having-the-three-edge-types-of-the-pattern-and-the-value-will-be-an-integer-with-the-frequency-of-that-pattern-the-vector-output-will-have-an-integer-array-of-size-4-where-the-first-3-cells-indicate-the-three-edge-types-of-the-pattern-and-the-fourth-index-will-be-the-frequency-25-points">You should enumerate and return all the patterns and their counts. Provide two implementations: one that uses and returns a vector, and another that uses and returns a hash map. The key for the map output will be an integer array of size 3 having the three edge types of the pattern and the value will be an integer with the frequency of that pattern. The vector output will have an integer array of size 4 where the first 3 cells indicate the three edge types of the pattern and the fourth index will be the frequency. [25 points]</h4>
+<p>Function Signatures:</p>
+<pre class="hljs"><code><div>void findTrianglesAsMap(const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; adjMat, int N, const std::unordered_map&lt;int[], int&gt; outputMap);
+void findTrianglesAsVec(const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; adjMat, int N, const std::vector&lt;int[]&gt;&amp; outputVec);
+</div></code></pre>
+<hr>
+<h4 id="3b-what-are-the-big-o-big-omega-and-big-theta-time-complexity-of-two-algorithms-what-are-their-space-complexities-provide-the-pseudocode-and-complexities-in-the-report-with-justification-15-points">3(b) What are the Big-O, Big-Omega and Big-Theta time complexity of two algorithms? What are their space complexities? Provide the pseudocode and complexities in the report, with justification. [15 points]</h4>
+<hr>
+<h4 id="3c-do-the-time-and-space-complexities-expected-match-the-experimental-time-taken-and-space-used-for-different-matrix-sizes-for-these-two-algorithms-run-experiments-provide-plots-and-discuss-the-results-in-your-report-in-detail-25-points">3(c) Do the time and space complexities expected match the experimental time taken and space used, for different matrix sizes for these two algorithms? Run experiments, provide plots and discuss the results in your report in detail. [25 points]</h4>
+
+</body>
+</html>
