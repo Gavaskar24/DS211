@@ -83,7 +83,7 @@ void denseMatrixMultiplication(const std::vector<std::vector<int> >& denseMatrix
                                             temp+=denseMatrix1[i][k]*denseMatrix2[k][j];
                                             
                                         }
-                                        // cout<<temp<<endl;
+                                        
                                         denseMatrix_result[i][j]=temp;
                                     }
                                 }
